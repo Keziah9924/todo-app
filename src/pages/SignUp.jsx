@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Joi from "joi";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faLock, faEmail, faPassword, } from "@fortawesome/free-solid-svg-icons";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -74,7 +76,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen ">
+    <div className="min-h-screen flex items-left justify-left bg-red-500 grid grid-cols-2">
       <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
         <form onSubmit={handleSubmit} className="space-y-4">

@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
-import { faFacebook, faGoogle, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faGoogle, faX } from "@fortawesome/free-brands-svg-icons";
 
 const Login = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96">
+    <div className="min-h-screen flex items-left justify-left bg-red-500 grid grid-cols-2">
+      <div className="bg-white p-8 rounded-lg shadow-md w-96 text-left">
         <h2 className="text-2xl font-bold mb-6 text-center">Sign In</h2>
         
         
@@ -41,9 +41,10 @@ const Login = () => {
 
         
         <div className="flex justify-center space-x-4 mt-4">
+          <p className="mt-4">Dr, Login with</p>
           <FontAwesomeIcon icon={faFacebook} className="text-blue-600 text-2xl cursor-pointer" />
           <FontAwesomeIcon icon={faGoogle} className="text-red-500 text-2xl cursor-pointer" />
-          <FontAwesomeIcon icon={faGithub} className="text-black text-2xl cursor-pointer" />
+          <FontAwesomeIcon icon={faX} className="text-black text-2xl cursor-pointer" />
         </div>
 
        
