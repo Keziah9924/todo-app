@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Joi from "joi";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faLock, faEmail, faPassword, } from "@fortawesome/free-solid-svg-icons";
+import { LuUserRoundPen } from "react-icons/lu";
+import { FaUserLarge } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
+import { IoMdLock } from "react-icons/io";
+import { MdLockOutline } from "react-icons/md";
+import bgImage from "../assets/R1.svg";
+import SignUpImage from "../assets/R2.svg"; 
+
+
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -76,63 +83,92 @@ const SignUp = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-left justify-left bg-red-500 grid grid-cols-2">
-      <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-md">
+    <div className=" flex items-center justify-center bg-cover h-screen w-screen"
+     style={{ backgroundImage: `url(${bgImage})` }}
+    >
+      <div className="bg-white p-10 rounded-lg shadow-lg w-190 h-150 grid grid-cols-1 md:grid-cols-2">
+      <div className="flex justify-center items-center">
+          <img
+            src={SignUpImage}
+            alt="Login Visual"
+            className="w-4/4 max-h-[500px] object-contain"
+          />
+        </div>
+      <div className=" justify-right items-right p-8">
         <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
+
+        <div className="relative">
+        <LuUserRoundPen className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black-500 text-xl" />
           <input
             type="text"
             name="firstName"
             placeholder="Enter First Name"
-            className="w-full px-4 py-2 border rounded-lg"
+            className="w-full px-10 py-2 border rounded-lg"
             onChange={handleChange}
           />
+            
           {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
-
+          </div>
+          <div className="relative">
+          <LuUserRoundPen className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black-500 text-xl" />
           <input
-            type="text"
+          
             name="lastName"
             placeholder="Enter Last Name"
-            className="w-full px-4 py-2 border rounded-lg"
+            type="text"
+            className="w-full px-10 py-2 border rounded-lg"
             onChange={handleChange}
           />
           {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
+          </div>
 
+          <div className="relative">
+          <FaUserLarge className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black-500 text-lg" />
           <input
             type="text"
             name="username"
             placeholder="Enter Username"
-            className="w-full px-4 py-2 border rounded-lg"
+            className="w-full px-10 py-2 border rounded-lg"
             onChange={handleChange}
           />
           {errors.username && <p className="text-red-500 text-sm">{errors.username}</p>}
+          </div>
 
+          <div className="relative">
+          <MdEmail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black-500 text-xl" />
           <input
             type="email"
             name="email"
             placeholder="Enter Email"
-            className="w-full px-4 py-2 border rounded-lg"
+            className="w-full px-10 py-2 border rounded-lg"
             onChange={handleChange}
           />
           {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+          </div>
 
+          <div className="relative">
+          <IoMdLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black-500 text-xl" />
           <input
             type="password"
             name="password"
             placeholder="Enter Password"
-            className="w-full px-4 py-2 border rounded-lg"
+            className="w-full px-10 py-2 border rounded-lg"
             onChange={handleChange}
           />
           {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
-
+          </div>
+          <div className="relative">
+          <MdLockOutline className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black-500 text-xl" />
           <input
             type="password"
             name="confirmPassword"
             placeholder="Confirm Password"
-            className="w-full px-4 py-2 border rounded-lg"
+            className="w-full px-10 py-2 border rounded-lg"
             onChange={handleChange}
           />
           {errors.confirmPassword && <p className="text-red-500 text-sm">{errors.confirmPassword}</p>}
+          </div>
 
           <div className="flex items-center gap-2">
             <input type="checkbox" name="agreeToTerms" onChange={handleChange} />
@@ -146,6 +182,7 @@ const SignUp = () => {
         <p className="text-center mt-4">
           Already have an account? <Link to="/LogIn" className="text-blue-500">LogIn</Link>
         </p>
+      </div>
       </div>
     </div>
   );
