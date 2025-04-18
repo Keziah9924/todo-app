@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+
+import { Link } from "react-rouimport React, { useState } from "react";ter-dom";
 import Joi from "joi";
 import { LuUserRoundPen } from "react-icons/lu";
 import { FaUserLarge } from "react-icons/fa6";
@@ -102,7 +102,7 @@ const SignUp = () => {
 
         <FormItem name={"firstName"} placeholder={"Enter First Name"} Icon={LuUserRoundPen} error={errors.firstName} handleChange={handleChange} />
         <FormItem name={"lastName"} placeholder={"Enter Last Name"} Icon={LuUserRoundPen} error={errors.lastName} handleChange={handleChange} />
-        <FormItem name={"username"} placeholder={"Enter Username"} Icon={FaUserLarge} error={errors.username} handleChange={handleChange} />
+        
         <FormItem name={"email"} type={"email"} placeholder={"Enter Email"} Icon={MdEmail} error={errors.email} handleChange={handleChange} />
         <FormItem name={"password"} type={"password"} placeholder={"Enter Password"} Icon={IoMdLock} error={errors.password} handleChange={handleChange} />
         <FormItem name={"comfirmPassword"} type={"password"} placeholder={"Confirm Password"} Icon={MdLockOutline} error={errors.confirmPassword} handleChange={handleChange} />

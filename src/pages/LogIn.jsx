@@ -1,4 +1,5 @@
 import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { BiLogoFacebookSquare } from "react-icons/bi";
 import { BiLogoGoogle } from "react-icons/bi";
@@ -103,4 +104,4 @@ const LogIn = () => {
   );
 };
 
-export default Login;
+export default LogIn;
