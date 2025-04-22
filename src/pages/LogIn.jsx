@@ -1,5 +1,6 @@
 import React from "react";
-import React, { useState } from "react";
+import { useState } from "react";
+import Joi from "joi";
 import { Link } from "react-router-dom";
 import { BiLogoFacebookSquare } from "react-icons/bi";
 import { BiLogoGoogle } from "react-icons/bi";
@@ -35,6 +36,13 @@ const LogIn = () => {
                   "any.only": "You must agree to the terms",
                 }),
               });
+              const handleChange = (e) => {
+                const { name, value, type, checked } = e.target;
+                setFormData({
+                  ...formData,
+                  [name]: type === "checkbox" ? checked : value,
+                });
+              };
 
               const handleSubmit = (e) => {
                 e.preventDefault();
@@ -60,19 +68,20 @@ const LogIn = () => {
       <div className="bg-white z-10 p-8 rounded-lg shadow-md w-14/15 h-auto  grid grid-cols-1 md:grid-cols-2">
       <div className=" justify-left items-left p-8">
         <h2 className="text-3xl font-bold mb-6 text-left">Sign In</h2>
-        
+         <form onSubmit={handleSubmit} className="space-y-4">
         <FormItem name={"username"} placeholder={"Enter Username"} Icon={FaUserLarge} error={errors.username} handleChange={handleChange} />
         <FormItem name={"password"} type={"password"} placeholder={"Enter Password"} Icon={IoMdLock} error={errors.password} handleChange={handleChange} />
 
         
         <div className="flex items-center mb-4">
-          <input type="checkbox" id="rememberMe" className="mr-2" />
+          <input type="checkbox" id="rememberMe" className="mr-2" name="agreeToTerms" onChange={handleChange}/>
           <label htmlFor="rememberMe">Remember Me</label>
         </div>
+          {errors.agreeToTerms && <p className="text-red-500 text-sm">{errors.agreeToTerms}</p>}
 
        
         <button className="w-1/2 bg-red-500 text-white p-2 rounded">Login</button>
-
+        </form>
         
         <div className="flex justify-left space-x-4 mt-4">
       

@@ -9,7 +9,7 @@ const App = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
 
       <Routes>
-        <Route path="/" element={<LogIn />}/>
+        <Route path="/LogIn" element={<LogIn />} />
         <Route path="/SignUp" element={<SignUp />} />
       </Routes>
       </div>

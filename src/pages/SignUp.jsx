@@ -1,5 +1,5 @@
-
-import { Link } from "react-rouimport React, { useState } from "react";ter-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Joi from "joi";
 import { LuUserRoundPen } from "react-icons/lu";
 import { FaUserLarge } from "react-icons/fa6";
@@ -89,13 +89,7 @@ const SignUp = () => {
     <>
     <AuthBackDrop/>
       <div className="bg-white z-10 p-10 rounded-lg shadow-lg w-[90%] h-auto grid grid-cols-1 md:grid-cols-2">
-      <div className="flex justify-center items-center">
-          <img
-            src={SignUpImage}
-            alt="Login Visual"
-            className="w-4/4 max-h-[400px] object-contain"
-          />
-        </div>
+      
       <div className=" justify-right items-right p-8">
         <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -114,7 +108,7 @@ const SignUp = () => {
           </div>
           {errors.agreeToTerms && <p className="text-red-500 text-sm">{errors.agreeToTerms}</p>}
 
-          <button className="w-full bg-red-500 text-white py-2 rounded-lg">Register</button>
+          <button className="w-1/2 bg-red-500 text-white py-2 rounded-lg">Register</button>
         </form>
 
         <p className="text-center mt-4">
