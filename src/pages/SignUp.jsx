@@ -89,9 +89,15 @@ const SignUp = () => {
     <>
     <AuthBackDrop/>
       <div className="bg-white z-10 p-10 rounded-lg shadow-lg w-[90%] h-auto grid grid-cols-1 md:grid-cols-2">
-      
+      <div className="flex justify-center items-center">
+          <img
+            src={SignUpImage}
+            alt="Login Visual"
+            className="w-4/4 max-h-[400px] object-contain"
+          />
+        </div>
       <div className=" justify-right items-right p-8">
-        <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
+        <h2 className="text-2xl font-bold text-left mb-6">Sign Up</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
 
         <FormItem name={"firstName"} placeholder={"Enter First Name"} Icon={LuUserRoundPen} error={errors.firstName} handleChange={handleChange} />
@@ -111,7 +117,7 @@ const SignUp = () => {
           <button className="w-1/2 bg-red-500 text-white py-2 rounded-lg">Register</button>
         </form>
 
-        <p className="text-center mt-4">
+        <p className="text-left mt-4">
           Already have an account? <Link to="/LogIn" className="text-blue-500">LogIn</Link>
         </p>
       </div>
