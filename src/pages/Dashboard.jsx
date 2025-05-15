@@ -16,34 +16,36 @@ import landingImage from "../assets/landing.svg";
 import meetingImage from "../assets/meeting.svg";
 import partyImage from "../assets/party.svg";
 import dogImage from "../assets/dog.svg";
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
+
+const today = new Date();
+const options = { year: "numeric", month: "long", day: "numeric" };
+const formattedDate = today.toLocaleDateString("en-US", options); // e.g. April 23, 2025
 
 
 const Avatar = [Avatar1, Avatar2, Avatar3, Avatar4, Avatar5];
-const Dashboard = () => {
+ const Dashboard = () => {
   return (
-    <>
-    
-    <div className="flex bg-gray-100 ml-64">
-        <Header />
-        <Sidebar /> 
+     <>
+     <div className="flex bg-gray-100 ml-64">
+         <Header />
+         <Sidebar />
 
-      
-      
-
-      {/* Main Content */}
-      <main className="flex-1 p-6 overflow-auto">
-      {/* Header */}
-      <div className="flex justify-between items-center mt-18">
-        <h1 className="text-2xl font-semibold">
-          Welcome back, <span className="text-black">Sundar</span> 👋
-        </h1>
-        <div className="flex items-center gap-3">
-          {Avatar.map((src, i) => (
-            <img
+                {/* Main Content */}
+       <main className="flex-1 p-6 overflow-auto">  
+            {/* Header */}
+       <div className="flex justify-between items-center mt-18">
+         <h1 className="text-2xl font-semibold">
+           Welcome back, <span className="text-black">Sundar</span> 👋
+         </h1>
+         <div className="flex items-center gap-3">
+           {Avatar.map((src, i) => (
+             <img
               key={i}
               src={src}
               alt={`avatar-${i}`}
-              className="w-7 h-7 rounded-sm border-2 border-white -ml-2"
+              className="w-9 h-9 rounded-sm border-2 border-white -ml-2"
             />
           ))}
           <button className="bg-white flex item-center text-red-500 px-3 py-1 rounded-md text-sm font-small border border-red-500">
@@ -53,85 +55,85 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Content Grid */}
-      <div className="border border-sm mt-6 border-gray-300 p-4">
-      <div className="grid grid-cols-3 gap-6 mt-6">
-        {/* Left Column: To-Do */}
-        <div className="col-span-2 bg-white rounded-lg p-4 shadow-md">
-          <div className="flex justify-between items-center mb-4">
-           <div>
+      <div className="border border-sm mt-6 border-gray-300 p-4">         
+    <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6 bg-gray-100">
+      {/* LEFT SIDE - TO DO TASKS */}
+      <div className="bg-white rounded-lg p-5 shadow-md">
+        <div className="flex justify-between items-center mb-4">
+          <div className="">
           <RiTodoLine />
-            <h2 className="font-bold text-lg text-red-500">To-Do</h2>
-            </div>
-            <button className="flex items-center gap-1 text-sm text-red-500 hover:text-red-500">
-              <FaPlus /> Add task
-            </button>
+          <h2 className="font-bold text-lg text-red-500">To-Do</h2>      
+            <p className="text-gray-400 text-sm">{formattedDate}</p>
           </div>
+         
+          <button className="flex items-center gap-1 text-sm text-red-500 hover:text-red-500">
+               <FaPlus /> Add task
+            </button>
+        </div>
 
           {/* Tasks */}
-          <div className="space-y-4">
-            <TaskCard
-              title="Attend Nischal’s Birthday Party"
-              desc="Buy gifts on the way and pick up cake from the bakery. [6 PM] at Fresh Elements."
-              date="20/06/2023"
-              status="Not Started"
-              image={partyImage}
-            />
-            <TaskCard
-              title="Landing Page Design for TravelDays"
-              desc="Get the work done by EOD and discuss with client before leaving. [4 PM | Meeting Room]"
-              date="20/06/2023"
-              status="In Progress"
-              image={landingImage}
-            />
-            <TaskCard
-              title="Presentation on Final Product"
-              desc="Make sure everything is properly aligned. Prepare final research insight and rehearse."
-              date="19/06/2023"
-              status="In Progress"
-              image={finalImage}
-            />
-          </div>
-        </div>
-
-        {/* Right Column: Status & Completed */}
-        <div className="flex flex-col gap-6">
-          {/* Task Status */}
-          
-            <div className="space-y-2">
-              {/* <StatusProgress label="Completed" value={84} color="green" />
-              <StatusProgress label="In Progress" value={46} color="blue" />
-              <StatusProgress label="Not Started" value={13} color="red" /> */}
-              <StatusProgress />
-            </div>
-          
-
-          {/* Completed Task */}
-          <div className="bg-white rounded-lg p-4 shadow-md space-y-2 border border-gray-300">
-            <h2 className="font-bold text-lg text-green-600 mb-3">✅ Completed Task</h2>
-            <TaskCard 
-              title="Walk the dog"
-              desc="Take the dog to the park and throw the tennis ball. 30 min walk."
-              date="Completed: 1 day ago"
-              status="Completed"
-              image={dogImage}
-            />
-            <TaskCard
-              title="Conduct meeting"
-              desc="Discuss with the client and approve the final dashboard design."
-              date="Completed: 4 days ago"
-              status="Completed"
-              image={meetingImage}
-            />
-          </div>
-          </div>
+        <div className="space-y-4">
+          <TaskCard
+            title="Attend Nischal’s Birthday Party"
+            desc="Buy gifts on the way and pick up cake from the bakery. [6 PM] at Fresh Elements."
+            date="20/06/2023"
+            status="Not Started"
+             priority="Moderate"
+            image={partyImage}
+          />
+          <TaskCard
+            title="Landing Page Design for TravelDays"
+            desc="Get the work done by EOD and discuss with client before leaving. [4 PM | Meeting Room]"
+            date="20/06/2023"
+            status="In Progress"
+             priority="Moderate"
+            image={landingImage}
+          />
+          <TaskCard
+            title="Presentation on Final Product"
+            desc="Make sure everything is functioning and the professionalism is maintained. Prepare final research and get the documents ready."
+            date="19/06/2023"
+            status="In Progress"
+             priority="Moderate"
+            image={finalImage}
+          />
         </div>
       </div>
-    </main>
 
+      {/* RIGHT SIDE - STATUS + COMPLETED TASKS */}
+      <div className="flex flex-col gap-6">
+       {/* Task Status */}
+        <div className="space-y-2">
+              <StatusProgress />
+            </div>
+
+
+         {/* Completed Task */}
+        <div className="bg-white rounded-lg p-5 shadow-md space-y-4">
+          <h2 className="text-green-600 font-bold mb-4">✅ Completed Task</h2>
+          <TaskCard
+            title="Walk the dog"
+            desc="Take the dog to the park and bring treats as well."
+            date="Completed: 1 day ago"
+            status="Completed"
+            image={dogImage}
+          />
+          <TaskCard
+            title="Conduct meeting"
+            desc="Wrap up the client and finalize requirements."
+            date="Completed: 4 days ago"
+            status="Completed"
+            image={meetingImage}
+          />
+        </div>
+      </div>
     </div>
-    </>
+    </div>
+    </main>
+    </div>
+       </>
   );
 };
 
 export default Dashboard;
+

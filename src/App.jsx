@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SignUp from "./pages/SignUp";
-import LogIn from "./pages/LogIn";
-import Dashboard from "./pages/Dashboard";
+import SignUp from "./pages/signup";
+import LogIn from "./pages/login";
+import Dashboard from "./pages/dashboard";
 
 const App = () => {
   return (
@@ -11,8 +11,8 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<LogIn />} />
-        <Route path="/SignUp" element={<SignUp />} />
-        <Route path="/Dashboard" element={<Dashboard   />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/dashboard" element={<Dashboard   />} />
       </Routes>
       </div>
     </Router>

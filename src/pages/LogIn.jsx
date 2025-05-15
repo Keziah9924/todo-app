@@ -62,7 +62,7 @@ const LogIn = () => {
                 } else {
                   console.log("Login Successful!", formData);
                   setErrors({});
-                  navigate("/Dashboard");
+                  navigate("/dashboard");
                   setSuccessMessage("Login successful! Redirecting to Dashboard...");
                 }
               };
@@ -106,7 +106,7 @@ const LogIn = () => {
        
         <p className="mt-4 text-left">
           Don't have an account?  
-          <Link to="/SignUp" className="text-blue-500 font-bold ml-1">Create One</Link>
+          <Link to="/signup" className="text-blue-500 font-bold ml-1">Create One</Link>
         </p>
 
       </div>
