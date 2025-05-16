@@ -28,12 +28,12 @@ const Avatar = [Avatar1, Avatar2, Avatar3, Avatar4, Avatar5];
  const Dashboard = () => {
   return (
      <>
-     <div className="flex bg-gray-100 ml-64">
+     <div className="flex bg-gray-100 ml-64 flex flex-col md:flex-row gap-4">
          <Header />
          <Sidebar />
 
                 {/* Main Content */}
-       <main className="flex-1 p-6 overflow-auto">  
+       <main className="flex-1 p-6 overflow-auto w-full md:w-2/3">  
             {/* Header */}
        <div className="flex justify-between items-center mt-18">
          <h1 className="text-2xl font-semibold">
@@ -79,6 +79,7 @@ const Avatar = [Avatar1, Avatar2, Avatar3, Avatar4, Avatar5];
             date="20/06/2023"
             status="Not Started"
              priority="Moderate"
+             showPriority={true}
             image={partyImage}
           />
           <TaskCard
@@ -87,6 +88,7 @@ const Avatar = [Avatar1, Avatar2, Avatar3, Avatar4, Avatar5];
             date="20/06/2023"
             status="In Progress"
              priority="Moderate"
+             showPriority={true}
             image={landingImage}
           />
           <TaskCard
@@ -95,6 +97,7 @@ const Avatar = [Avatar1, Avatar2, Avatar3, Avatar4, Avatar5];
             date="19/06/2023"
             status="In Progress"
              priority="Moderate"
+             showPriority={true}
             image={finalImage}
           />
         </div>

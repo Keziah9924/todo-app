@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import SidebarImage from "../assets/Ellipse1.svg";
 import { MdDashboard } from "react-icons/md";
 import { BsExclamationLg } from "react-icons/bs";
@@ -14,7 +15,7 @@ import { LuLogOut } from "react-icons/lu";
 
 const Sidebar = () => {
   return (
-    <aside className="w-64 bg-red-400 text-white h-screen p-6 flex flex-col justify-between fixed left-0 rounded-lg top-30">
+    <aside className="w-64 bg-red-400 text-white h-screen p-6 flex flex-col justify-between fixed left-0 rounded-tr-lg top-30">
       {/* Profile Section */}
       <div>
         <div className="absolute top-6 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center mb-20">
@@ -29,34 +30,72 @@ const Sidebar = () => {
 
         {/* Navigation Items */}
         <nav className="space-y-4 mt-19 px-4 ">
-          <div className="flex items-center gap-3 bg-white text-red-500 cursor-pointer px-4 py-2 rounded-lg font-semibold">
-          <MdDashboard />
-            <span>Dashboard</span>
-          </div>
-          <div className="flex items-center gap-3 px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg">
+                <Link
+          to=""
+          onClick={(e) => e.preventDefault()}
+          className="flex items-center gap-3 bg-white text-red-500 cursor-pointer px-4 py-2 rounded-lg font-semibold"
+        >
+        <MdDashboard />
+        <span>Dashboard</span>
+        </Link>
+                
+                  <Link
+          to=""
+          onClick={(e) => e.preventDefault()}
+          className="flex items-center gap-3 px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg"
+        >
           <BsExclamationLg />
-            <span>Vital Task</span>
-          </div>
-          <div className="flex items-center gap-3 px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg">
-          <BiTask />
-            <span>My Task</span>
-          </div>
-          <div className="flex items-center gap-3 px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg">
-          <FaTasks />
-            <span>Task Categories</span>
-          </div>
-          <div className="flex items-center gap-3 px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg">
-          <IoMdSettings />
-            <span>Settings</span>
-          </div>
-          <div className="flex items-center gap-3 px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg">
-          <IoMdHelpCircleOutline />
-            <span>Help</span>
-          </div>
-          <div className="flex items-center gap-3 mt-18 px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg cursor-pointer">
+          <span>Vital Task</span>
+        </Link>
+
+        <Link
+          to=""
+          onClick={(e) => e.preventDefault()}
+          className="flex items-center gap-3 px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg"
+        >
+        <BiTask />
+        <span>My Task</span>
+        </Link>
+                  
+                        <Link
+          to=""
+          onClick={(e) => e.preventDefault()}
+          className="flex items-center gap-3 px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg"
+        >
+        <FaTasks />
+        <span>Task Categories</span>
+        </Link>
+          
+                        <Link
+          to=""
+          onClick={(e) => e.preventDefault()}
+          className="flex items-center gap-3 px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg"
+        >
+        <IoMdSettings />
+        <span>Settings</span>
+        </Link>
+              
+
+        <Link
+          to=""
+          onClick={(e) => e.preventDefault()}
+          className="flex items-center gap-3 px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg"
+        >
+        <IoMdHelpCircleOutline />
+        <span>Help</span>
+        </Link>
+                
+
+        <Link
+          to=""
+          onClick={(e) => e.preventDefault()}
+          className="flex items-center gap-3 mt-18 px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg cursor-pointer"
+        >
         <LuLogOut />
-          <span>Logout</span>
-        </div>
+        <span>Logout</span>
+        </Link>
+                
+ 
         </nav>
       </div>
 
