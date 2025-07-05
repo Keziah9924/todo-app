@@ -4,6 +4,7 @@ import {
   buildStyles,
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import pending from '../assets/pending.svg';
 
 const StatusProgress = () => {
   const statusData = [
@@ -14,7 +15,8 @@ const StatusProgress = () => {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md w-full">
-      <h2 className="text-red-500 font-bold text-md mb-4">📄 Task Status</h2>
+       <h2 className="flex items-center text-red-500 font-bold text-md mb-4"><img src={pending} alt="pending" /> 
+       <span>Task Status</span></h2>
       <div className="flex justify-between items-center gap-4">
         {statusData.map((status, i) => (
           <div key={i} className="flex flex-col items-center">

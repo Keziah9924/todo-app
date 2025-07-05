@@ -3,18 +3,19 @@ import { IoIosSearch } from "react-icons/io";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { FaCalendarAlt } from "react-icons/fa";
 
-const Header = () => {
+const Header = ({label}) => {
   //  JavaScript to get current day and date
   const today = new Date();
   const day = today.toLocaleDateString("en-US", { weekday: "long" });
   const date = today.toLocaleDateString("en-CA"); // e.g., 2025-04-22
 
   return (
-    <header className="fixed w-full flex bg-white px-6 py-4 shadow-md left-0 top-0 justify-between">
+    <header className="fixed w-full flex bg-white px-6 py-4 shadow-md left-0 top-0 justify-between z-30">
       {/* Logo */}
       <h1 className="text-2xl font-bold ml-4">
         <span className="text-red-500">Dash</span>
         <span className="text-black">board</span>
+        <span className="text-black">{label}</span>
       </h1>
 
       {/* Search Box */}
@@ -44,7 +45,7 @@ const Header = () => {
         {/* Dynamic Date */}
         <div className="text-sm text-right leading-tight">
           <p className="font-semibold">{day}</p>
-          <p className="text-blue-300">{date}</p>
+          <p className="text-[#3ABEFF]">{date}</p>
         </div>
       </div>
     </header>

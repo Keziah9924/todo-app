@@ -15,7 +15,7 @@ import { LuLogOut } from "react-icons/lu";
 
 const Sidebar = () => {
   return (
-    <aside className="w-64 bg-red-400 text-white h-screen p-6 flex flex-col justify-between fixed left-0 rounded-tr-lg top-30">
+    <aside className="hidden fixed left-0 md:flex flex-col justify-between w-64 h-screen bg-red-400 text-white p-6 rounded-tr-lg top-30">
       {/* Profile Section */}
       <div>
         <div className="absolute top-6 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center mb-20">
