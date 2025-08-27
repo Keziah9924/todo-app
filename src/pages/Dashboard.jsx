@@ -62,7 +62,7 @@ const Dashboard = () => {
   <div className="bg-white rounded-lg p-5 shadow-md">
     <div className="flex justify-between items-center mb-4">
       <div className="flex items-center gap-2">
-        <img src={pending} alt="icon" className="w-5 h-5" />
+        <img src={pending} alt="icon" className="w-10 h-10" />
         <h2 className="font-bold text-lg text-red-500">To-Do</h2>
       </div>
       <p className="text-gray-400 text-sm">{formattedDate}</p>
@@ -110,11 +110,11 @@ const Dashboard = () => {
       <StatusProgress />
     
 
-    {/* Completed Task */}
+    {/* Completed Task */} 
     <div className="bg-white rounded-lg p-5 shadow-md space-y-4">
-      <div className="flex items-center gap-2 font-bold ">
-      <span><BiTask className="text-ash-500"/></span>
-      <h2 className="text-green-600 font-bold mb-4"> Completed Task</h2>
+      <div className="flex items-center gap-1 font-bold ">
+      <BiTask className="text-gray-400 text-l mb-[0.2rem] w-8 h-8"/>
+      <h2 className="text-green-600 font-bold mb-3"> Completed Task</h2>
       </div>
       <TaskCard
         title="Walk the dog"
