@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Joi from "joi";
 import { LuUserRoundPen } from "react-icons/lu";
 import { FaUserLarge } from "react-icons/fa6";
@@ -14,6 +15,10 @@ import FormItem from "../components/FormItem";
 
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const [successMessage, setSuccessMessage] = useState("");
+
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -70,7 +75,7 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData)
+    console.log("You clicked Register", formData)
     const validation = schema.validate(formData, { abortEarly: false });
 
     if (validation.error) {
@@ -82,6 +87,8 @@ const SignUp = () => {
     } else {
       console.log("Sign Up Successful!", formData);
       setErrors({});
+      navigate("/LogIn");
+      setSuccessMessage("Registration successful! Redirecting to login...");
     }
   };
 
@@ -96,16 +103,22 @@ const SignUp = () => {
             className="w-4/4 max-h-[400px] object-contain"
           />
         </div>
+        {successMessage && (
+  <div className="bg-green-100 border border-green-300 text-green-800 px-4 py-2 rounded mb-4 text-sm">
+    {successMessage}
+  </div>
+)}
+
       <div className=" justify-right items-right p-8">
         <h2 className="text-2xl font-bold text-left mb-6">Sign Up</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
 
         <FormItem name={"firstName"} placeholder={"Enter First Name"} Icon={LuUserRoundPen} error={errors.firstName} handleChange={handleChange} />
         <FormItem name={"lastName"} placeholder={"Enter Last Name"} Icon={LuUserRoundPen} error={errors.lastName} handleChange={handleChange} />
-        
+        <FormItem name={"username"} placeholder={"Enter Username"} Icon={FaUserLarge} error={errors.username} handleChange={handleChange} />
         <FormItem name={"email"} type={"email"} placeholder={"Enter Email"} Icon={MdEmail} error={errors.email} handleChange={handleChange} />
         <FormItem name={"password"} type={"password"} placeholder={"Enter Password"} Icon={IoMdLock} error={errors.password} handleChange={handleChange} />
-        <FormItem name={"comfirmPassword"} type={"password"} placeholder={"Confirm Password"} Icon={MdLockOutline} error={errors.confirmPassword} handleChange={handleChange} />
+        <FormItem name={"confirmPassword"} type={"password"} placeholder={"Confirm Password"} Icon={MdLockOutline} error={errors.confirmPassword} handleChange={handleChange} />
 
 
           <div className="flex items-center gap-2">
@@ -114,11 +127,11 @@ const SignUp = () => {
           </div>
           {errors.agreeToTerms && <p className="text-red-500 text-sm">{errors.agreeToTerms}</p>}
 
-          <button className="w-1/2 bg-red-500 text-white py-2 rounded-lg">Register</button>
+          <button type="submit" className="w-1/2 bg-red-500 text-white py-2 rounded-lg">Register</button>
         </form>
 
         <p className="text-left mt-4">
-          Already have an account? <Link to="/LogIn" className="text-blue-500">LogIn</Link>
+          Already have an account? <Link to="/" className="text-blue-500">LogIn</Link>
         </p>
       </div>
       </div>

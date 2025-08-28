@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Joi from "joi";
 import { Link } from "react-router-dom";
 import { BiLogoFacebookSquare } from "react-icons/bi";
@@ -14,6 +15,9 @@ import FormItem from "../components/FormItem";
 
 
 const LogIn = () => {
+  const navigate = useNavigate();
+    const [successMessage, setSuccessMessage] = useState("");
+
   const [formData, setFormData] = useState({
       username: "",
       password: "",
@@ -56,8 +60,10 @@ const LogIn = () => {
                   });
                   setErrors(errorMessages);
                 } else {
-                  console.log("Sign Up Successful!", formData);
+                  console.log("Login Successful!", formData);
                   setErrors({});
+                  navigate("/dashboard");
+                  setSuccessMessage("Login successful! Redirecting to Dashboard...");
                 }
               };
 
@@ -65,6 +71,11 @@ const LogIn = () => {
   return (
   <>
   <AuthBackDrop/>
+  {successMessage && (
+  <div className="bg-green-100 border border-green-300 text-green-800 px-4 py-2 rounded mb-4 text-sm">
+    {successMessage}
+  </div>
+)}
       <div className="bg-white z-10 p-8 rounded-lg shadow-md w-14/15 h-auto  grid grid-cols-1 md:grid-cols-2">
       <div className=" justify-left items-left p-8">
         <h2 className="text-3xl font-bold mb-6 text-left">Sign In</h2>
@@ -80,7 +91,7 @@ const LogIn = () => {
           {errors.agreeToTerms && <p className="text-red-500 text-sm">{errors.agreeToTerms}</p>}
 
        
-        <button className="w-1/2 bg-red-500 text-white p-2 rounded">Login</button>
+        <button type="submit" className="w-1/2 bg-red-500 text-white p-2 rounded">Login</button>
         </form>
         
         <div className="flex justify-left space-x-4 mt-4">
@@ -95,7 +106,7 @@ const LogIn = () => {
        
         <p className="mt-4 text-left">
           Don't have an account?  
-          <Link to="/SignUp" className="text-blue-500 font-bold ml-1">Create One</Link>
+          <Link to="/signup" className="text-blue-500 font-bold ml-1">Create One</Link>
         </p>
 
       </div>
