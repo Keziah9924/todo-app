@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Joi from "joi";
 import { LuUserRoundPen } from "react-icons/lu";
 import { FaUserLarge } from "react-icons/fa6";
@@ -8,16 +7,13 @@ import { MdEmail } from "react-icons/md";
 import { IoMdLock } from "react-icons/io";
 import { MdLockOutline } from "react-icons/md";
 import AuthBackDrop from "../components/AuthBackDrop";
-import SignUpImage from "../assets/R2.svg";
 import InputBox from "../components/InputBox";
 import FormItem from "../components/FormItem"; 
-
-
+import cloudinaryImages from "../assets/cloudinary"; // ✅ Import Cloudinary links
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [successMessage, setSuccessMessage] = useState("");
-
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -75,7 +71,7 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("You clicked Register", formData)
+    console.log("You clicked Register", formData);
     const validation = schema.validate(formData, { abortEarly: false });
 
     if (validation.error) {
@@ -94,48 +90,99 @@ const SignUp = () => {
 
   return (
     <>
-    <AuthBackDrop/>
+      <AuthBackDrop />
       <div className="bg-white z-10 p-10 rounded-lg shadow-lg w-[90%] h-auto grid grid-cols-1 md:grid-cols-2">
-      <div className="flex justify-center items-center">
+        {/* LEFT SIDE - IMAGE */}
+        <div className="flex justify-center items-center">
           <img
-            src={SignUpImage}
-            alt="Login Visual"
+            src={cloudinaryImages.R2} // ✅ Cloudinary signup image
+            alt="Sign Up Visual"
             className="w-4/4 max-h-[400px] object-contain"
           />
         </div>
+
+        {/* SUCCESS MESSAGE */}
         {successMessage && (
-  <div className="bg-green-100 border border-green-300 text-green-800 px-4 py-2 rounded mb-4 text-sm">
-    {successMessage}
-  </div>
-)}
-
-      <div className=" justify-right items-right p-8">
-        <h2 className="text-2xl font-bold text-left mb-6">Sign Up</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-
-        <FormItem name={"firstName"} placeholder={"Enter First Name"} Icon={LuUserRoundPen} error={errors.firstName} handleChange={handleChange} />
-        <FormItem name={"lastName"} placeholder={"Enter Last Name"} Icon={LuUserRoundPen} error={errors.lastName} handleChange={handleChange} />
-        <FormItem name={"username"} placeholder={"Enter Username"} Icon={FaUserLarge} error={errors.username} handleChange={handleChange} />
-        <FormItem name={"email"} type={"email"} placeholder={"Enter Email"} Icon={MdEmail} error={errors.email} handleChange={handleChange} />
-        <FormItem name={"password"} type={"password"} placeholder={"Enter Password"} Icon={IoMdLock} error={errors.password} handleChange={handleChange} />
-        <FormItem name={"confirmPassword"} type={"password"} placeholder={"Confirm Password"} Icon={MdLockOutline} error={errors.confirmPassword} handleChange={handleChange} />
-
-
-          <div className="flex items-center gap-2">
-            <input type="checkbox" name="agreeToTerms" onChange={handleChange} />
-            <label>I agree to all terms</label>
+          <div className="bg-green-100 border border-green-300 text-green-800 px-4 py-2 rounded mb-4 text-sm">
+            {successMessage}
           </div>
-          {errors.agreeToTerms && <p className="text-red-500 text-sm">{errors.agreeToTerms}</p>}
+        )}
 
-          <button type="submit" className="w-1/2 bg-red-500 text-white py-2 rounded-lg">Register</button>
-        </form>
+        {/* RIGHT SIDE - FORM */}
+        <div className="justify-right items-right p-8">
+          <h2 className="text-2xl font-bold text-left mb-6">Sign Up</h2>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <FormItem
+              name={"firstName"}
+              placeholder={"Enter First Name"}
+              Icon={LuUserRoundPen}
+              error={errors.firstName}
+              handleChange={handleChange}
+            />
+            <FormItem
+              name={"lastName"}
+              placeholder={"Enter Last Name"}
+              Icon={LuUserRoundPen}
+              error={errors.lastName}
+              handleChange={handleChange}
+            />
+            <FormItem
+              name={"username"}
+              placeholder={"Enter Username"}
+              Icon={FaUserLarge}
+              error={errors.username}
+              handleChange={handleChange}
+            />
+            <FormItem
+              name={"email"}
+              type={"email"}
+              placeholder={"Enter Email"}
+              Icon={MdEmail}
+              error={errors.email}
+              handleChange={handleChange}
+            />
+            <FormItem
+              name={"password"}
+              type={"password"}
+              placeholder={"Enter Password"}
+              Icon={IoMdLock}
+              error={errors.password}
+              handleChange={handleChange}
+            />
+            <FormItem
+              name={"confirmPassword"}
+              type={"password"}
+              placeholder={"Confirm Password"}
+              Icon={MdLockOutline}
+              error={errors.confirmPassword}
+              handleChange={handleChange}
+            />
 
-        <p className="text-left mt-4">
-          Already have an account? <Link to="/" className="text-blue-500">LogIn</Link>
-        </p>
+            <div className="flex items-center gap-2">
+              <input type="checkbox" name="agreeToTerms" onChange={handleChange} />
+              <label>I agree to all terms</label>
+            </div>
+            {errors.agreeToTerms && (
+              <p className="text-red-500 text-sm">{errors.agreeToTerms}</p>
+            )}
+
+            <button
+              type="submit"
+              className="w-1/2 bg-red-500 text-white py-2 rounded-lg"
+            >
+              Register
+            </button>
+          </form>
+
+          <p className="text-left mt-4">
+            Already have an account?{" "}
+            <Link to="/" className="text-blue-500">
+              LogIn
+            </Link>
+          </p>
+        </div>
       </div>
-      </div>
-      </>
+    </>
   );
 };
 

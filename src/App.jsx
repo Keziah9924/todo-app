@@ -8,15 +8,16 @@ const App = () => {
   return (
     <Router>
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
-
-      <Routes>
-        <Route path="/" element={<LogIn />} />
-        <Route path="/Signup" element={<SignUp />} />
-        <Route path="/Dashboard" element={<Dashboard   />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<LogIn />} />
+          <Route path="/Signup" element={<SignUp />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
+          
+        </Routes>
       </div>
     </Router>
   );
 };
 
 export default App;
+
