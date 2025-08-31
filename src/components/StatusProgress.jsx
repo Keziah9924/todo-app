@@ -4,7 +4,7 @@ import {
   buildStyles,
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import pending from '../assets/pending.svg';
+import cloudinaryImages from "../assets/cloudinary";
 
 const StatusProgress = () => {
   const statusData = [
@@ -15,8 +15,17 @@ const StatusProgress = () => {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md w-full">
-       <h2 className="flex items-center text-red-500 font-bold text-md mb-4"><img src={pending} alt="pending" /> 
-       <span>Task Status</span></h2>
+      {/* Title with Cloudinary Pending Icon */}
+      <h2 className="flex items-center text-red-500 font-bold text-md mb-4">
+        <img
+          src={cloudinaryImages.pending} 
+          alt="pending"
+          className="w-6 h-6 mr-2"
+        />
+        <span>Task Status</span>
+      </h2>
+
+      {/* Status Progress Circles */}
       <div className="flex justify-between items-center gap-4">
         {statusData.map((status, i) => (
           <div key={i} className="flex flex-col items-center">
