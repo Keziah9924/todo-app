@@ -13,7 +13,7 @@ import InputBox from "../components/InputBox";
 import FormItem from "../components/FormItem"; 
 import cloudinaryImages from "../assets/cloudinary"; 
 
-const LogIn = () => {
+const Login = () => {
   const navigate = useNavigate();
   const [successMessage, setSuccessMessage] = useState("");
 
@@ -60,7 +60,7 @@ const LogIn = () => {
       });
       setErrors(errorMessages);
     } else {
-      console.log("Login Successful!", formData);
+      console.log("Logii Successful!", formData);
       setErrors({});
       navigate("/dashboard");
       setSuccessMessage("Login successful! Redirecting to Dashboard...");
@@ -127,7 +127,7 @@ const LogIn = () => {
 
           <p className="mt-4 text-left">
             Don't have an account?
-            <Link to="/signup" className="text-blue-500 font-bold ml-1">
+            <Link to="/register" className="text-blue-500 font-bold ml-1">
               Create One
             </Link>
           </p>
@@ -146,4 +146,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default Login;
