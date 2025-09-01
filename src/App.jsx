@@ -10,8 +10,8 @@ const App = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
         <Routes>
           <Route path="/" element={<LogIn />} />
-          <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           
         </Routes>
       </div>
