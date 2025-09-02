@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignUp from "./pages/SignUp";
-import LogIn from "./pages/Login";
+import LogIn from "./pages/LogIn";
 import Dashboard from "./pages/Dashboard";
 
-const App = () => {
+const App = () =>
   return (
     <Router>
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
