@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import { FaPlus } from "react-icons/fa";
+import { AiOutlineBell } from "react-icons/ai";  
 import TaskCard from "../components/TaskCard";
 import StatusProgress from "../components/StatusProgress";
 import { BiTask } from "react-icons/bi";
 import cloudinaryImages from "../assets/cloudinary";
 import InviteModal from "../components/InviteModal";
+import NotificationPane from "../components/NotificationPane"; 
 import Layout from "../components/Layout";
 
 const today = new Date();
@@ -14,11 +16,22 @@ const options = { year: "numeric", month: "long", day: "numeric" };
 const formattedDate = today.toLocaleDateString("en-US", options);
 
 const Dashboard = () => {
-  // ✅ move useState inside component
+  // Invite modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
+
+  //  Notifications pane state
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+  const handleOpenNotifications = () => setIsNotificationsOpen(true);
+  const handleCloseNotifications = () => setIsNotificationsOpen(false);
+
+  //  Example notifications
+  const notifications = [
+    { title: "New Task Assigned", message: "Design login page", time: "2m ago" },
+    { title: "Meeting Reminder", message: "Team sync at 3 PM", time: "1h ago" },
+    { title: "Task Completed", message: "Landing page design finished", time: "1d ago" },
+  ];
 
   return (
     <Layout label={"To-Do"}>
@@ -41,13 +54,32 @@ const Dashboard = () => {
                   className="w-9 h-9 rounded-sm -ml-2"
                 />
               ))}
+
+              {/* Notification Icon */}
+              <button
+                onClick={handleOpenNotifications}
+                className="bg-white flex items-center text-gray-600 px-3 py-1 rounded-md border hover:text-red-500"
+              >
+                <AiOutlineBell className="text-[20px]" />
+              </button>
+
+              {/* + Invite Button */}
               <button
                 onClick={handleOpenModal}
                 className="bg-white flex items-center text-red-500 px-3 py-1 rounded-md border border-red-500"
               >
                 + Invite
               </button>
+
+              {/*  Invite Modal */}
               <InviteModal isOpen={isModalOpen} onClose={handleCloseModal} />
+
+              {/*  Notification Pane */}
+              <NotificationPane
+                isOpen={isNotificationsOpen}
+                onClose={handleCloseNotifications}
+                notifications={notifications}
+              />
             </div>
           </div>
 
