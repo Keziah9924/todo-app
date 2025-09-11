@@ -6,7 +6,7 @@ const InputBox = (props) => {
             name={props.name}
             type={props.type || 'text'}
             placeholder={props.placeholder}
-            className="w-full px-10 py-2 border rounded-lg"
+            className="w-full px-12 py-2 border rounded-lg"
             onChange={props.handleChange}
         />
     )
