@@ -60,7 +60,7 @@ const Login = () => {
       });
       setErrors(errorMessages);
     } else {
-      console.log("Logii Successful!", formData);
+      console.log("Login Successful!", formData);
       setErrors({});
       navigate("/dashboard");
       setSuccessMessage("Login successful! Redirecting to Dashboard...");
@@ -75,10 +75,10 @@ const Login = () => {
           {successMessage}
         </div>
       )}
-      <div className="bg-white z-10 p-8 rounded-lg shadow-md w-14/15 h-auto grid grid-cols-1 md:grid-cols-2">
+      <div className="bg-white z-10 p-8 rounded-lg shadow-md w-[1806px] h-[715px] top-[118px] left-[80px] grid grid-cols-1 md:grid-cols-2">
         {/* LEFT SIDE - FORM */}
         <div className="justify-left items-left p-8">
-          <h2 className="text-3xl font-bold mb-6 text-left">Sign In</h2>
+          <h2 className="text-3xl font-bold mb-6 text-left mt-20">Sign In</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <FormItem
               name={"username"}
@@ -134,7 +134,7 @@ const Login = () => {
         </div>
 
         {/* RIGHT SIDE - IMAGE */}
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center mt-20">
           <img
             src={cloudinaryImages.R1} 
             alt="Login Visual"

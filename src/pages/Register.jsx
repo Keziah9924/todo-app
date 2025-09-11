@@ -95,7 +95,7 @@ const Register = () => {
                 {/* LEFT SIDE - IMAGE */}
                 <div className="flex justify-center items-center">
                     <img
-                        src={cloudinaryImages.R2} // ✅ Cloudinary Register image
+                        src={cloudinaryImages.R2} // Cloudinary Register image
                         alt="Sign Up Visual"
                         className="w-4/4 max-h-[400px] object-contain"
                     />

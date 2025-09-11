@@ -12,8 +12,9 @@ import NotificationPane from "../components/NotificationPane";
 import Layout from "../components/Layout";
 
 const today = new Date();
-const options = { year: "numeric", month: "long", day: "numeric" };
-const formattedDate = today.toLocaleDateString("en-US", options);
+const options = { day: "numeric", month: "numeric", year: "numeric" };
+const formattedDate = today.toLocaleDateString("en-GB", options);
+new Date().toLocaleDateString("en-US", { day: "numeric", month: "numeric", year: "numeric" })
 
 const Dashboard = () => {
   // Invite modal state
@@ -55,13 +56,6 @@ const Dashboard = () => {
                 />
               ))}
 
-              {/* Notification Icon */}
-              <button
-                onClick={handleOpenNotifications}
-                className="bg-white flex items-center text-gray-600 px-3 py-1 rounded-md border hover:text-red-500"
-              >
-                <AiOutlineBell className="text-[20px]" />
-              </button>
 
               {/* + Invite Button */}
               <button
