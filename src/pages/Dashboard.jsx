@@ -2,23 +2,51 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import { FaPlus } from "react-icons/fa";
-import TaskCard from "../components/TaskCard";
-import StatusProgress from "../components/StatusProgress";
 import { BiTask } from "react-icons/bi";
 import cloudinaryImages from "../assets/cloudinary";
 import InviteModal from "../components/InviteModal";
 import Layout from "../components/Layout";
+import TaskCard from "../components/TaskCard";
+import StatusProgress from "../components/StatusProgress";
+
 
 const today = new Date();
-const options = { year: "numeric", month: "long", day: "numeric" };
-const formattedDate = today.toLocaleDateString("en-US", options);
+const options = { day: "2-digit", month: "2-digit", year: "numeric" };
+const formattedDate = today.toLocaleDateString("en-GB", options);
 
 const Dashboard = () => {
-  // ✅ move useState inside component
+  // Invite modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
+
+  // Example members (for Invite Modal)
+  const members = [
+    {
+      avatar: "https://i.pravatar.cc/40?img=1",
+      name: "Ugyasho Gurung",
+      email: "ugyasyo@gmail.com",
+      role: "Can edit",
+    },
+    {
+      avatar: "https://i.pravatar.cc/40?img=2",
+      name: "Jeremy Lee",
+      email: "jeremy@gmail.com",
+      role: "Can edit",
+    },
+    {
+      avatar: "https://i.pravatar.cc/40?img=3",
+      name: "Thomas Park",
+      email: "thomas@gmail.com",
+      role: "Owner",
+    },
+    {
+      avatar: "https://i.pravatar.cc/40?img=4",
+      name: "Rachel Tashikani",
+      email: "rachel@gmail.com",
+      role: "Can not edit",
+    },
+  ];
 
   return (
     <Layout label={"To-Do"}>
@@ -41,13 +69,21 @@ const Dashboard = () => {
                   className="w-9 h-9 rounded-sm -ml-2"
                 />
               ))}
+
+              {/* + Invite Button */}
               <button
                 onClick={handleOpenModal}
-                className="bg-white flex items-center text-red-500 px-3 py-1 rounded-md border border-red-500"
+                className="bg-white flex items-center text-red-500 px-3 py-1 rounded-md border border-red-500 cursor-pointer"
               >
                 + Invite
               </button>
-              <InviteModal isOpen={isModalOpen} onClose={handleCloseModal} />
+
+              {/* Invite Modal (new version) */}
+              <InviteModal
+                isOpen={isModalOpen}
+                onClose={handleCloseModal}
+                members={members}
+              />
             </div>
           </div>
 

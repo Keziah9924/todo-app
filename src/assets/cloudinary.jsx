@@ -16,6 +16,7 @@ const cloudinaryImages = {
   R1:"https://res.cloudinary.com/deudqvqfs/image/upload/v1756392396/ach31_eennpv.svg",
   R2:"https://res.cloudinary.com/deudqvqfs/image/upload/v1756392401/R2_zgd6rc.svg",
   ellipse1:"https://res.cloudinary.com/deudqvqfs/image/upload/v1756392398/Ellipse1_ty3chi.svg"
+
 };
 
 export default cloudinaryImages;
