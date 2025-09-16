@@ -41,11 +41,11 @@ const InviteModal = ({ isOpen, onClose, members }) => {
           className="fixed inset-0 z-50 flex items-center justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          exit={{ opacity: 0.8 }}
         >
           {/* Dark Overlay */}
           <div
-            className="absolute inset-0 backdrop-blur-sm bg-opacity-20"
+            className="absolute inset-0 backdrop-blur-sm bg-opacity-0.8"
             onClick={onClose}
           />
 
