@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import { FaPlus } from "react-icons/fa";
-import { AiOutlineBell } from "react-icons/ai";  
 import TaskCard from "../components/TaskCard";
 import StatusProgress from "../components/StatusProgress";
 import { BiTask } from "react-icons/bi";
 import cloudinaryImages from "../assets/cloudinary";
 import InviteModal from "../components/InviteModal";
-import NotificationPane from "../components/NotificationPane"; 
+import NotificationPane from "../components/NotificationPane";
 import Layout from "../components/Layout";
 
 const today = new Date();
@@ -21,26 +20,87 @@ const Dashboard = () => {
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
 
-  //  Notifications pane state
+  // Notifications pane state
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const handleOpenNotifications = () => setIsNotificationsOpen(true);
   const handleCloseNotifications = () => setIsNotificationsOpen(false);
 
-  //  Example notifications
+  // Example notifications (new format)
   const notifications = [
-    { title: "New Task Assigned", message: "Design login page", time: "2m ago" },
-    { title: "Meeting Reminder", message: "Team sync at 3 PM", time: "1h ago" },
-    { title: "Task Completed", message: "Landing page design finished", time: "1d ago" },
+    {
+      title: "Complete the",
+      highlight: "UI Design",
+      time: "2m ago",
+      priority: "Extremely High",
+      image: cloudinaryImages.landing,
+    },
+    {
+      title: "Review the",
+      highlight: "Juice Slider",
+      time: "2h",
+      priority: "High",
+      image: cloudinaryImages.party,
+    },
+    {
+      title: "Finalize",
+      highlight: "Presentation Deck",
+      time: "2h",
+      priority: "Moderate",
+      image: cloudinaryImages.final,
+    },
+     {
+      title: "Complete the",
+      highlight: "UI Design",
+      time: "2h",
+      priority: "Extremely High",
+      image: cloudinaryImages.landing,
+    },
+    {
+      title: "Review the",
+      highlight: "Juice Slider",
+      time: "2h",
+      priority: "High",
+      image: cloudinaryImages.party,
+    },
+    {
+      title: "Finalize",
+      highlight: "Presentation Deck",
+      time: "2h",
+      priority: "Moderate",
+      image: cloudinaryImages.final,
+    },
+       {
+      title: "Complete the",
+      highlight: "UI Design",
+      time: "2m ago",
+      priority: "Extremely High",
+      image: cloudinaryImages.landing,
+    },
+    {
+      title: "Review the",
+      highlight: "Juice Slider",
+      time: "2h",
+      priority: "High",
+      image: cloudinaryImages.party,
+    },
+    {
+      title: "Finalize",
+      highlight: "Presentation Deck",
+      time: "2h",
+      priority: "Moderate",
+      image: cloudinaryImages.final,
+    },
   ];
 
   return (
     <Layout label={"To-Do"}>
       <div className="flex bg-gray-100 flex-col md:flex-row gap-4">
-        <Header />
+        {/* Pass handler into Header */}
+        <Header onOpenNotifications={handleOpenNotifications} />
         <Sidebar />
 
         <main className="flex-1 p-6 overflow-auto w-full md:w-2/3">
-          {/* Header */}
+          {/* Greeting Section */}
           <div className="flex justify-between items-center mt-18">
             <h1 className="text-2xl font-semibold">
               Welcome back, <span className="text-black">Sundar</span> 👋
@@ -55,14 +115,6 @@ const Dashboard = () => {
                 />
               ))}
 
-              {/* Notification Icon */}
-              <button
-                onClick={handleOpenNotifications}
-                className="bg-white flex items-center text-gray-600 px-3 py-1 rounded-md border hover:text-red-500"
-              >
-                <AiOutlineBell className="text-[20px]" />
-              </button>
-
               {/* + Invite Button */}
               <button
                 onClick={handleOpenModal}
@@ -71,15 +123,8 @@ const Dashboard = () => {
                 + Invite
               </button>
 
-              {/*  Invite Modal */}
+              {/* Invite Modal */}
               <InviteModal isOpen={isModalOpen} onClose={handleCloseModal} />
-
-              {/*  Notification Pane */}
-              <NotificationPane
-                isOpen={isNotificationsOpen}
-                onClose={handleCloseNotifications}
-                notifications={notifications}
-              />
             </div>
           </div>
 
@@ -165,9 +210,17 @@ const Dashboard = () => {
             </div>
           </div>
         </main>
+
+        {/* Notification Pane (global to dashboard) */}
+        <NotificationPane
+          isOpen={isNotificationsOpen}
+          onClose={handleCloseNotifications}
+          notifications={notifications}
+        />
       </div>
     </Layout>
   );
 };
 
 export default Dashboard;
+  
