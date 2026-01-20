@@ -1,27 +1,106 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import { FaPlus } from "react-icons/fa";
 import TaskCard from "../components/TaskCard";
 import StatusProgress from "../components/StatusProgress";
-import { MdOutlineGroupAdd } from "react-icons/md";
-import Layout from "../components/Layout";
 import { BiTask } from "react-icons/bi";
-import cloudinaryImages from "../assets/cloudinary"; 
+import cloudinaryImages from "../assets/cloudinary";
+import InviteModal from "../components/InviteModal";
+import NotificationPane from "../components/NotificationPane";
+import Layout from "../components/Layout";
 
 const today = new Date();
 const options = { year: "numeric", month: "long", day: "numeric" };
 const formattedDate = today.toLocaleDateString("en-US", options);
 
 const Dashboard = () => {
+  // Invite modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
+
+  // Notifications pane state
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+  const handleOpenNotifications = () => setIsNotificationsOpen(true);
+  const handleCloseNotifications = () => setIsNotificationsOpen(false);
+
+  // Example notifications (new format)
+  const notifications = [
+    {
+      title: "Complete the",
+      highlight: "UI Design",
+      time: "2m ago",
+      priority: "Extremely High",
+      image: cloudinaryImages.landing,
+    },
+    {
+      title: "Review the",
+      highlight: "Juice Slider",
+      time: "2h",
+      priority: "High",
+      image: cloudinaryImages.party,
+    },
+    {
+      title: "Finalize",
+      highlight: "Presentation Deck",
+      time: "2h",
+      priority: "Moderate",
+      image: cloudinaryImages.final,
+    },
+     {
+      title: "Complete the",
+      highlight: "UI Design",
+      time: "2h",
+      priority: "Extremely High",
+      image: cloudinaryImages.landing,
+    },
+    {
+      title: "Review the",
+      highlight: "Juice Slider",
+      time: "2h",
+      priority: "High",
+      image: cloudinaryImages.party,
+    },
+    {
+      title: "Finalize",
+      highlight: "Presentation Deck",
+      time: "2h",
+      priority: "Moderate",
+      image: cloudinaryImages.final,
+    },
+       {
+      title: "Complete the",
+      highlight: "UI Design",
+      time: "2m ago",
+      priority: "Extremely High",
+      image: cloudinaryImages.landing,
+    },
+    {
+      title: "Review the",
+      highlight: "Juice Slider",
+      time: "2h",
+      priority: "High",
+      image: cloudinaryImages.party,
+    },
+    {
+      title: "Finalize",
+      highlight: "Presentation Deck",
+      time: "2h",
+      priority: "Moderate",
+      image: cloudinaryImages.final,
+    },
+  ];
+
   return (
     <Layout label={"To-Do"}>
       <div className="flex bg-gray-100 flex-col md:flex-row gap-4">
-        <Header />
+        {/* Pass handler into Header */}
+        <Header onOpenNotifications={handleOpenNotifications} />
         <Sidebar />
 
         <main className="flex-1 p-6 overflow-auto w-full md:w-2/3">
-          {/* Header */}
+          {/* Greeting Section */}
           <div className="flex justify-between items-center mt-18">
             <h1 className="text-2xl font-semibold">
               Welcome back, <span className="text-black">Sundar</span> 👋
@@ -30,18 +109,26 @@ const Dashboard = () => {
               {cloudinaryImages.avatars.map((src, i) => (
                 <img
                   key={i}
-                  src={src} 
+                  src={src}
                   alt={`avatar-${i}`}
                   className="w-9 h-9 rounded-sm -ml-2"
                 />
               ))}
-              <button className="bg-white flex item-center text-red-500 px-3 py-1 rounded-md text-sm font-small border border-red-500">
-                <MdOutlineGroupAdd className="text-[20px]" />
+
+              {/* + Invite Button */}
+              <button
+                onClick={handleOpenModal}
+                className="bg-white flex items-center text-red-500 px-3 py-1 rounded-md border border-red-500"
+              >
                 + Invite
               </button>
+
+              {/* Invite Modal */}
+              <InviteModal isOpen={isModalOpen} onClose={handleCloseModal} />
             </div>
           </div>
 
+          {/* Task Section */}
           <div className="border border-sm mt-6 border-gray-300 p-4">
             <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6 bg-gray-100">
               {/* LEFT SIDE - TO DO TASKS */}
@@ -70,7 +157,7 @@ const Dashboard = () => {
                     status="Not Started"
                     priority="Moderate"
                     showPriority={true}
-                    image={cloudinaryImages.party} 
+                    image={cloudinaryImages.party}
                   />
                   <TaskCard
                     title="Landing Page Design for TravelDays"
@@ -79,7 +166,7 @@ const Dashboard = () => {
                     status="In Progress"
                     priority="Moderate"
                     showPriority={true}
-                    image={cloudinaryImages.landing} 
+                    image={cloudinaryImages.landing}
                   />
                   <TaskCard
                     title="Presentation on Final Product"
@@ -109,23 +196,31 @@ const Dashboard = () => {
                     desc="Take the dog to the park and bring treats as well."
                     date="Completed: 1 day ago"
                     status="Completed"
-                    image={cloudinaryImages.dog} 
+                    image={cloudinaryImages.dog}
                   />
                   <TaskCard
                     title="Conduct meeting"
                     desc="Wrap up the client and finalize requirements."
                     date="Completed: 4 days ago"
                     status="Completed"
-                    image={cloudinaryImages.meeting} 
+                    image={cloudinaryImages.meeting}
                   />
                 </div>
               </div>
             </div>
           </div>
         </main>
+
+        {/* Notification Pane (global to dashboard) */}
+        <NotificationPane
+          isOpen={isNotificationsOpen}
+          onClose={handleCloseNotifications}
+          notifications={notifications}
+        />
       </div>
     </Layout>
   );
 };
 
 export default Dashboard;
+  
