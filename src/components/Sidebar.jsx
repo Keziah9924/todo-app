@@ -11,7 +11,7 @@ import cloudinaryImages from "../assets/cloudinary";
 
 const Sidebar = () => {
   return (
-    <aside className="hidden fixed left-0 md:flex flex-col justify-between w-64 h-screen bg-red-400 text-white p-6 rounded-tr-lg top-30">
+    <aside className="hidden fixed left-0 md:flex flex-col justify-between w-64 h-screen bg-red-400 text-white p-6 rounded-tr-lg top-30 z-20">
       {/* Profile Section */}
       <div>
         <div className="absolute top-6 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center mb-20">
@@ -79,16 +79,19 @@ const Sidebar = () => {
             <IoMdHelpCircleOutline />
             <span>Help</span>
           </Link>
-
-          <Link
-            to=""
-            onClick={(e) => e.preventDefault()}
-            className="flex items-center gap-3 mt-[16rem] px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg"
-          >
-            <LuLogOut />
-            <span>Logout</span>
-          </Link>
         </nav>
+      </div>
+
+      {/* Logout Section */}
+      <div className="px-4 pb-20">
+        <Link
+          to=""
+          onClick={(e) => e.preventDefault()}
+          className="flex items-center gap-3 px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg"
+        >
+          <LuLogOut />
+          <span>Logout</span>
+        </Link>
       </div>
     </aside>
   );

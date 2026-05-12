@@ -56,7 +56,6 @@ const Dashboard = () => {
                 />
               ))}
 
-
               {/* + Invite Button */}
               <button
                 onClick={handleOpenModal}
@@ -130,7 +129,7 @@ const Dashboard = () => {
               </div>
 
               {/* RIGHT SIDE - STATUS + COMPLETED TASKS */}
-              <div className="flex flex-col gap-6 shadow-md rounded-lg">
+              <div className="flex flex-col gap-6">
                 <StatusProgress />
 
                 <div className="bg-white rounded-lg p-5 shadow-md space-y-4">
