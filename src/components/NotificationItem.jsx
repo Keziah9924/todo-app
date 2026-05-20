@@ -1,37 +1,25 @@
 import React from "react";
 
-const NotificationItem = ({ title, highlight, time, priority, image }) => {
+const NotificationItem = ({ title, project, time, priority, image }) => {
   return (
-    <div className="flex items-center justify-between">
-      {/* Left side: text */}
-      <div className="flex flex-col flex-1 pr-3">
-        {/* Title + Time */}
+    <div className="flex justify-between items-center py-4 border-b border-gray-300">
+      <div className="flex-1 pr-3">
         <p className="text-sm text-gray-800 leading-snug">
-          Complete the{" "}
-          <span className="font-semibold">{highlight || title}</span>
-          <span className="ml-2 text-xs text-gray-500">{time}</span>
+          Complete the <span className="font-semibold">{title}</span> for{" "}
+          <span className="font-semibold">{project}</span>.{" "}
+          <span className="text-gray-400 text-xs">{time}</span>
         </p>
-
-        {/* Priority */}
-        <span
-          className={`text-sm mt-1 ${
-            priority === "Extremely High"
-              ? "text-red-600 font-bold"
-              : "text-red-500 font-medium"
-          }`}
-        >
-          Priority: {priority}
-        </span>
+        <p className="text-xs mt-1">
+          Priority:{" "}
+          <span className="text-red-500 font-semibold">{priority}</span>
+        </p>
       </div>
 
-      {/* Right side: thumbnail */}
-      {image && (
-        <img
-          src={image}
-          alt="notification"
-          className="w-12 h-12 rounded-md object-cover flex-shrink-0"
-        />
-      )}
+      <img
+        src={image}
+        alt=""
+        className="w-12 h-12 rounded-md object-cover"
+      />
     </div>
   );
 };

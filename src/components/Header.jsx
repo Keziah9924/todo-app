@@ -4,7 +4,6 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { FaCalendarAlt } from "react-icons/fa";
 
 const Header = ({ label, onOpenNotifications }) => {
-  //  JavaScript to get current day and date
   const today = new Date();
   const day = today.toLocaleDateString("en-US", { weekday: "long" });
   const date = today.toLocaleDateString("en-GB");
@@ -18,7 +17,7 @@ const Header = ({ label, onOpenNotifications }) => {
         <span className="text-black">{label}</span>
       </h1>
 
-      {/* Search Box */}
+      {/* Search */}
       <div className="flex relative items-center bg-gray-100 rounded-lg h-6 mt-2 px-4 py-4 w-full max-w-lg shadow-md">
         <input
           type="text"
@@ -26,29 +25,27 @@ const Header = ({ label, onOpenNotifications }) => {
           className="bg-transparent outline-none w-full text-sm text-gray-700"
         />
         <button className="p-1 absolute right-0 bg-red-500 h-full rounded-lg text-white">
-          <IoIosSearch className="text-white-400" />
+          <IoIosSearch />
         </button>
       </div>
 
-      {/* Right Section */}
+      {/* Right */}
       <div className="flex items-center gap-6 mr-7">
-        {/* Icons */}
         <div className="flex items-center gap-2">
-          {/* Notification Button */}
+          
+          {/* NOTIFICATION BUTTON */}
           <button
-            onClick={onOpenNotifications} // 🔹 Open notification pane
+            onClick={onOpenNotifications}
             className="p-1 bg-red-500 rounded-lg text-white shadow cursor-pointer"
           >
             <IoIosNotificationsOutline size={20} />
           </button>
 
-          {/* Calendar Button */}
           <button className="p-1 bg-red-500 rounded-lg text-white shadow cursor-pointer">
             <FaCalendarAlt size={20} />
           </button>
         </div>
 
-        {/* Dynamic Date */}
         <div className="text-sm text-right leading-tight">
           <p className="font-semibold">{day}</p>
           <p className="text-[#3ABEFF]">{date}</p>

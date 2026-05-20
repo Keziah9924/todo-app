@@ -83,7 +83,7 @@ const Sidebar = () => {
           <Link
             to=""
             onClick={(e) => e.preventDefault()}
-            className="flex items-center gap-3 mt-[16rem] px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg"
+            className="flex items-center gap-3 mt-[5rem] px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg"
           >
             <LuLogOut />
             <span>Logout</span>
