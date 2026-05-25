@@ -15,7 +15,11 @@ const cloudinaryImages = {
   pending: "https://res.cloudinary.com/deudqvqfs/image/upload/v1756392400/Pending_s5ehpe.svg",
   R1:"https://res.cloudinary.com/deudqvqfs/image/upload/v1756392396/ach31_eennpv.svg",
   R2:"https://res.cloudinary.com/deudqvqfs/image/upload/v1756392401/R2_zgd6rc.svg",
-  ellipse1:"https://res.cloudinary.com/deudqvqfs/image/upload/v1756392398/Ellipse1_ty3chi.svg"
+  ellipse1:"https://res.cloudinary.com/deudqvqfs/image/upload/v1756392398/Ellipse1_ty3chi.svg",
+  food:"https://res.cloudinary.com/deudqvqfs/image/upload/v1779108517/Rectangle_20_2_wly6oq.svg",
+  travel:"https://res.cloudinary.com/deudqvqfs/image/upload/v1779108549/Rectangle_20_1_pw0qag.svg",
+  mobile:"https://res.cloudinary.com/deudqvqfs/image/upload/v1779108595/Rectangle_20_dleoxi.svg",
+  juice:"https://res.cloudinary.com/deudqvqfs/image/upload/v1779108450/Rectangle_20_3_pvujlo.svg",
 };
 
 export default cloudinaryImages;
