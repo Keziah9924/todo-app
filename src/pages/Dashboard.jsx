@@ -24,27 +24,27 @@ const Dashboard = () => {
   const members = [
     {
       avatar: "https://i.pravatar.cc/40?img=1",
-      name: "Ugyasho Gurung",
-      email: "ugyasyo@gmail.com",
+      name: "Upashna Gurung",
+      email: "uppaeygrg332@gmail.com",
       role: "Can edit",
     },
     {
       avatar: "https://i.pravatar.cc/40?img=2",
       name: "Jeremy Lee",
-      email: "jeremy@gmail.com",
+      email: "jerrylee1996@gmail.com",
       role: "Can edit",
     },
     {
       avatar: "https://i.pravatar.cc/40?img=3",
       name: "Thomas Park",
-      email: "thomas@gmail.com",
+      email: "parktho123@gmail.com",
       role: "Owner",
     },
     {
       avatar: "https://i.pravatar.cc/40?img=4",
-      name: "Rachel Tashikani",
-      email: "rachel@gmail.com",
-      role: "Can not edit",
+      name: "Rachel Takahasi",
+      email: "takahasirae32@gmail.com",
+      role: "Can edit",
     },
   ];
 
