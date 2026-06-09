@@ -8,6 +8,7 @@ import InviteModal from "../components/InviteModal";
 import Layout from "../components/Layout";
 import TaskCard from "../components/TaskCard";
 import StatusProgress from "../components/StatusProgress";
+import CalendarModal from "../components/CalendarModal";
 
 
 const today = new Date();
@@ -20,6 +21,23 @@ const Dashboard = () => {
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
 
+  // Notification pane state
+const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+
+const handleOpenNotifications = () => {
+  setIsNotificationsOpen(true);
+};
+
+const handleCloseNotifications = () => {
+  setIsNotificationsOpen(false);
+};
+
+  //Calendar modal state
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+
+const handleOpenCalendar = () => setIsCalendarOpen(true);
+
+const handleCloseCalendar = () => setIsCalendarOpen(false);
   // Example members (for Invite Modal)
   const members = [
     {
@@ -51,7 +69,10 @@ const Dashboard = () => {
   return (
     <Layout label={"To-Do"}>
       <div className="flex bg-gray-100 flex-col md:flex-row gap-4">
-        <Header />
+        <Header
+        onOpenNotifications={handleOpenNotifications}
+        onOpenCalendar={handleOpenCalendar}
+      />
         <Sidebar />
 
         <main className="flex-1 p-6 overflow-auto w-full md:w-2/3">
