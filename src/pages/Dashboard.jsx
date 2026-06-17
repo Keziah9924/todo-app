@@ -36,9 +36,9 @@ const handleCloseNotifications = () => {
   //Calendar modal state
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
-const handleOpenCalendar = () => setIsCalendarOpen(true);
+   const handleOpenCalendar = () => setIsCalendarOpen(true);
 
-const handleCloseCalendar = () => setIsCalendarOpen(false);
+    const handleCloseCalendar = () => setIsCalendarOpen(false);
   // Example members (for Invite Modal)
   const members = [
     {
@@ -66,11 +66,30 @@ const handleCloseCalendar = () => setIsCalendarOpen(false);
       role: "Can edit",
     },
   ];
+  const notifications = [
+  {
+    title: "Landing Page Design",
+    project: "TravelDays",
+    time: "10:00 AM",
+    priority: "High",
+    image: cloudinaryImages.landing,
+  },
+  {
+    title: "Presentation",
+    project: "Final Product",
+    time: "11:30 AM",
+    priority: "Moderate",
+    image: cloudinaryImages.final,
+  },
+];
 
   return (
     <Layout label={"To-Do"}>
       <div className="flex bg-gray-100 flex-col md:flex-row gap-4">
-        <Header />
+       <Header
+  onNotificationClick={handleOpenNotifications}
+  onCalendarClick={handleOpenCalendar}
+/>
         <Sidebar />
 
         <main className="flex-1 p-6 overflow-auto w-full md:w-2/3">
@@ -94,7 +113,11 @@ const handleCloseCalendar = () => setIsCalendarOpen(false);
               >
                 + Invite
               </button>
-              <InviteModal isOpen={isModalOpen} onClose={handleCloseModal} />
+              <InviteModal
+              isOpen={isModalOpen}
+              onClose={handleCloseModal}
+              members={members}
+            />
             </div>
           </div>
 
@@ -187,7 +210,12 @@ const handleCloseCalendar = () => setIsCalendarOpen(false);
         onClose={handleCloseNotifications}
         notifications={notifications}
       />
+      <CalendarModal
+  isOpen={isCalendarOpen}
+  onClose={handleCloseCalendar}
+/>
     </div>
+    
   </Layout>
 );
 };

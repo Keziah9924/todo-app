@@ -3,10 +3,10 @@ import { IoIosSearch } from "react-icons/io";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { FaCalendarAlt } from "react-icons/fa";
 
-const Header = ({ label, onOpenNotifications }) => {
+const Header = ({ label, onNotificationClick, onCalendarClick }) => {
   const today = new Date();
   const day = today.toLocaleDateString("en-US", { weekday: "long" });
-  const date = today.toLocaleDateString("en-CA"); // e.g., 2025-04-22
+  const date = today.toLocaleDateString("en-CA");
 
   return (
     <header className="fixed w-full flex bg-white px-6 py-4 shadow-md left-0 top-0 justify-between z-30">
@@ -29,13 +29,20 @@ const Header = ({ label, onOpenNotifications }) => {
         </button>
       </div>
 
-      {/* Right */}
+      {/* Right Side */}
       <div className="flex items-center gap-6 mr-7">
         <div className="flex items-center gap-2">
-          <button className="p-1 bg-red-500 rounded-lg text-white shadow">
+          <button
+            onClick={onNotificationClick}
+            className="p-1 bg-red-500 rounded-lg text-white shadow"
+          >
             <IoIosNotificationsOutline size={14} />
           </button>
-          <button className="p-1 bg-red-500 rounded-lg text-white shadow">
+
+          <button
+            onClick={onCalendarClick}
+            className="p-1 bg-red-500 rounded-lg text-white shadow"
+          >
             <FaCalendarAlt size={14} />
           </button>
         </div>
