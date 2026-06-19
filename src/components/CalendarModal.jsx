@@ -1,6 +1,8 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaArrowLeft, FaArrowRight, FaReply } from "react-icons/fa";
+import { BsReplyFill } from "react-icons/bs";
+import { SlArrowLeft } from "react-icons/sl";
+import { SlArrowRight } from "react-icons/sl";
 
 const CalendarModal = ({ isOpen, onClose }) => {
   const days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
@@ -30,7 +32,7 @@ const CalendarModal = ({ isOpen, onClose }) => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             className="fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-                       w-[310px] bg-[#f3f4f8] rounded-2xl p-6 shadow-2xl"
+                       w-[410px] bg-[#f3f4f8] rounded-2xl p-6 shadow-2xl"
           >
             {/* Header */}
             <div className="flex justify-between items-center mb-3">
@@ -39,8 +41,8 @@ const CalendarModal = ({ isOpen, onClose }) => {
               </h2>
 
               <button onClick={onClose}>
-                <FaReply
-                  className="text-[#ff6666] rotate-180 text-xl"
+                <BsReplyFill
+                  className="text-[#ff6666] size={30} text-xl"
                 />
               </button>
             </div>
@@ -60,7 +62,7 @@ const CalendarModal = ({ isOpen, onClose }) => {
             {/* Month Navigation */}
             <div className="flex items-center justify-between mb-5">
               <button className="w-8 h-8 border border-gray-300 rounded-md flex items-center justify-center bg-white">
-                <FaArrowLeft />
+                <SlArrowLeft />
               </button>
 
               <h3 className="font-semibold text-lg">
@@ -68,7 +70,8 @@ const CalendarModal = ({ isOpen, onClose }) => {
               </h3>
 
               <button className="w-8 h-8 border border-gray-300 rounded-md flex items-center justify-center bg-white">
-                <FaArrowRight />
+                <SlArrowRight />
+
               </button>
             </div>
 
