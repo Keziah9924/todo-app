@@ -24,14 +24,9 @@ const Dashboard = () => {
 
   // Notification pane state
 const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+  const handleOpenNotifications = () => setIsNotificationsOpen(true);
+  const handleCloseNotifications = () => setIsNotificationsOpen(false);
 
-const handleOpenNotifications = () => {
-  setIsNotificationsOpen(true);
-};
-
-const handleCloseNotifications = () => {
-  setIsNotificationsOpen(false);
-};
 
   //Calendar modal state
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
@@ -66,22 +61,45 @@ const handleCloseNotifications = () => {
       role: "Can edit",
     },
   ];
-  const notifications = [
-  {
-    title: "Landing Page Design",
-    project: "TravelDays",
-    time: "10:00 AM",
-    priority: "High",
-    image: cloudinaryImages.landing,
-  },
-  {
-    title: "Presentation",
-    project: "Final Product",
-    time: "11:30 AM",
-    priority: "Moderate",
+   const notifications = [
+    {
+      title: "Complete the",
+      highlight: <>UI Design <span className="font-normal">of Landing Page for</span> FoodVentures.</>,
+      time: "2m ago",
+      priority: "High",
+      image: cloudinaryImages.food,
+    },
+    {
+      title: "Complete the",
+      highlight: <>UI Design <span className="font-normal">of Landing Page for</span> Travel Days.</>,
+      time: "2h",
+      priority: "High",
+      image: cloudinaryImages.travel,
+    },
+    {
+      title: "Complete the",
+      highlight: <>Mobile app design <span className="font-normal">for</span> Pet Warden</>,
+    time: "2h",
+    priority: "Extremely High",
     image: cloudinaryImages.final,
+    },
+  {
+    title: "Complete the entire design for",
+    highlight: "Juice Slider",
+    time: "2h",
+    priority: "High",
+    image: cloudinaryImages.juice,
   },
-];
+  {
+    title: "Review the",
+    highlight: "Juice Slider",
+    time: "2h",
+    priority: "High",
+    image: cloudinaryImages.party,
+  },
+ 
+  ];
+
 
   return (
     <Layout label={"To-Do"}>
