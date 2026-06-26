@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { MdDashboard } from "react-icons/md";
 import { BsExclamationLg } from "react-icons/bs";
 import { BiTask } from "react-icons/bi";
@@ -10,6 +10,12 @@ import { LuLogOut } from "react-icons/lu";
 import cloudinaryImages from "../assets/cloudinary";
 
 const Sidebar = () => {
+  const linkStyle = ({ isActive }) =>
+    `flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-200 ${
+      isActive
+        ? "bg-white text-red-500 font-semibold"
+        : "hover:bg-red-300 text-white"
+    }`;
   return (
     <aside className="hidden fixed left-0 md:flex flex-col justify-between w-64 h-screen bg-red-400 text-white p-6 rounded-tr-lg top-30">
       {/* Profile Section */}
@@ -25,69 +31,65 @@ const Sidebar = () => {
         </div>
 
         {/* Navigation Items */}
-        <nav className="space-y-4 mt-19 px-4">
-          <Link
-            to=""
-            onClick={(e) => e.preventDefault()}
-            className="flex items-center gap-3 bg-white text-red-500 cursor-pointer px-4 py-2 rounded-lg font-semibold"
+        <nav className="flex flex-col mt-20 px-4">
+          <div className="space-y-4">
+          <NavLink
+            to="/dashboard"                              
+            className={linkStyle}
           >
             <MdDashboard />
             <span>Dashboard</span>
-          </Link>
+          </NavLink>
 
-          <Link
-            to=""
-            onClick={(e) => e.preventDefault()}
-            className="flex items-center gap-3 px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg"
+          <NavLink
+            to="/vital-tasks"
+            className={linkStyle}
           >
             <BsExclamationLg />
             <span>Vital Task</span>
-          </Link>
+          </NavLink>
 
-          <Link
-            to=""
-            onClick={(e) => e.preventDefault()}
-            className="flex items-center gap-3 px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg"
+          <NavLink
+            to="/my-tasks"
+            className={linkStyle}
           >
             <BiTask />
             <span>My Task</span>
-          </Link>
+          </NavLink>
 
-          <Link
-            to=""
-            onClick={(e) => e.preventDefault()}
-            className="flex items-center gap-3 px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg"
+          <NavLink
+            to="/task-categories"
+            className={linkStyle}
           >
             <FaTasks />
             <span>Task Categories</span>
-          </Link>
+          </NavLink>
 
-          <Link
-            to=""
-            onClick={(e) => e.preventDefault()}
-            className="flex items-center gap-3 px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg"
+          <NavLink
+            to="/settings"
+            className={linkStyle}
           >
             <IoMdSettings />
             <span>Settings</span>
-          </Link>
+          </NavLink>
 
-          <Link
-            to=""
-            onClick={(e) => e.preventDefault()}
-            className="flex items-center gap-3 px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg"
+          <NavLink
+            to="/help"
+            className={linkStyle}
           >
             <IoMdHelpCircleOutline />
             <span>Help</span>
-          </Link>
+          </NavLink>
+          </div>
 
-          <Link
-            to=""
-            onClick={(e) => e.preventDefault()}
-            className="flex items-center gap-3 mt-[5rem] px-4 py-2 hover:bg-red-300 cursor-pointer rounded-lg"
+          <NavLink
+            to="/logout"
+            className={linkStyle}
           >
+          
             <LuLogOut />
             <span>Logout</span>
-          </Link>
+          </NavLink>
         </nav>
       </div>
     </aside>

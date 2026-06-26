@@ -21,6 +21,7 @@ const cloudinaryImages = {
   travel:"https://res.cloudinary.com/deudqvqfs/image/upload/v1779108549/Rectangle_20_1_pw0qag.svg",
   mobile:"https://res.cloudinary.com/deudqvqfs/image/upload/v1779108595/Rectangle_20_dleoxi.svg",
   juice:"https://res.cloudinary.com/deudqvqfs/image/upload/v1779108450/Rectangle_20_3_pvujlo.svg",
+  hospital:"https://res.cloudinary.com/deudqvqfs/image/upload/v1782139389/Rectangle_10_byu5o1.svg",
 };
 
 export default cloudinaryImages;

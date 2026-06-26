@@ -102,17 +102,16 @@ const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
 
 
   return (
-    <Layout label={"To-Do"}>
-      <div className="flex bg-gray-100 flex-col md:flex-row gap-4">
-       <Header
+    <Layout
+  label="To-Do"
   onNotificationClick={handleOpenNotifications}
   onCalendarClick={handleOpenCalendar}
-/>
-        <Sidebar />
+>
+      <div className="flex bg-gray-100 flex-col md:flex-row gap-4">
 
         <main className="flex-1 p-6 overflow-auto w-full md:w-2/3">
           {/* Header */}
-          <div className="flex justify-between items-center mt-18">
+          <div className="flex justify-between items-center mt-6">
             <h1 className="text-2xl font-semibold">
               Welcome back, <span className="text-black">Sundar</span> 👋
             </h1>
