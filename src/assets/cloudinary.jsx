@@ -22,6 +22,8 @@ const cloudinaryImages = {
   mobile:"https://res.cloudinary.com/deudqvqfs/image/upload/v1779108595/Rectangle_20_dleoxi.svg",
   juice:"https://res.cloudinary.com/deudqvqfs/image/upload/v1779108450/Rectangle_20_3_pvujlo.svg",
   hospital:"https://res.cloudinary.com/deudqvqfs/image/upload/v1782139389/Rectangle_10_byu5o1.svg",
+  assignment:"https://res.cloudinary.com/deudqvqfs/image/upload/v1782486216/Rectangle_10_2_y2odkx.svg",
+  document:"https://res.cloudinary.com/deudqvqfs/image/upload/v1782486247/Rectangle_11_ltixoo.svg",
 };
 
 export default cloudinaryImages;
