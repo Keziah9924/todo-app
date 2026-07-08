@@ -41,10 +41,12 @@ const TaskCategories = () => {
           </div>
 
           {/* Add Category Button */}
-          <button
-          className="bg-orange-600 text-white text-xs px-4 py-2 rounded-md mb-6">
-            Add Category
-          </button>
+          
+          <Link
+          to="/add-category"
+          className="inline-block bg-orange-600 text-white text-xs px-4 py-2 rounded-md mb-6 hover:bg-orange-700 transition">
+          Add Category
+        </Link>
 
           {/* Task Status */}
           <div className="flex justify-between items-center mb-3">
