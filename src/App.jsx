@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import VitalTasks from "./pages/VitalTasks";
 import MyTask from "./pages/MyTask";
 import TaskCategories from "./pages/TaskCategories";
+import AddCategory from "./pages/AddCategory";
 
 const App = () => {
     return (
@@ -18,6 +19,7 @@ const App = () => {
                     <Route path="/vital-tasks" element={<VitalTasks />} />
                     <Route path="/my-tasks" element={<MyTask />} />
                     <Route path="/task-categories" element={<TaskCategories />} />
+                    <Route path="/add-category" element={<AddCategory />} />
                 </Routes>
             </div>
         </Router>
