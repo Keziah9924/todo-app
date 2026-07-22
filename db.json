@@ -1,0 +1,68 @@
+{
+  "tasks": [
+    {
+  "id": 1,
+  "title": "Submit Documents",
+  "description": "Review the list of required documents and submit them before the deadline.",
+  "objective": "To submit required documents for something important.",
+  "notes": "Ensure all documents are authentic and up-to-date.",
+  "deadline": "End of Day",
+  "priority": "Extreme",
+  "status": "Not Started",
+  "category": "Work",
+  "createdAt": "2023-06-20"
+},
+    {
+      "id": 2,
+      "title": "Submit Documents",
+      "description": "Submit required documents",
+      "objective": "To submit all required documents.",
+      "priority": "Extreme",
+      "status": "Not Started",
+      "category": "Work",
+      "createdAt": "2023-06-20"
+    }
+   
+  ],
+
+  "categories": [
+    {
+      "id": 1,
+      "name": "Work"
+    },
+    {
+      "id": 2,
+      "name": "School"
+    }
+  ],
+
+  "status": [
+    {
+      "id": 1,
+      "name": "Completed"
+    },
+    {
+      "id": 2,
+      "name": "In Progress"
+    },
+    {
+      "id": 3,
+      "name": "Not Started"
+    }
+  ],
+
+  "priority": [
+    {
+      "id": 1,
+      "name": "Extreme"
+    },
+    {
+      "id": 2,
+      "name": "Moderate"
+    },
+    {
+      "id": 3,
+      "name": "Low"
+    }
+  ]
+}
