@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Layout from "../components/Layout";
 import cloudinaryImages from "../assets/cloudinary";
 import { FaTrash } from "react-icons/fa";
 import { RiEditBoxLine } from "react-icons/ri";
+import { PiDotsThreeOutlineLight } from "react-icons/pi";
 
 
 const MyTask = () => {
+  const [tasks, setTasks] = useState([]);
+const [selectedTask, setSelectedTask] = useState(null);
+
+const API_URL = "http://localhost:3001/tasks";
+useEffect(() => {
+  fetchTasks();
+}, []);
+
+const fetchTasks = async () => {
+  try {
+    const response = await axios.get(API_URL);
+    setTasks(response.data);
+    setSelectedTask(response.data[0]);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
   return (
     <Layout label="To-Do">
@@ -20,19 +39,22 @@ const MyTask = () => {
           </h2>
 
           {/* Task 1 */}
-          <div className="border border-gray-300 rounded-lg bg-gray-200 p-3 mb-3 flex justify-between items-start relative">
+          <div
+  className="border border-gray-300 rounded-lg p-3 bg-gray-200 flex justify-between items-start mb-4 relative cursor-pointer"
+  onClick={() => setSelectedTask(tasks[0])}
+>
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-red-500">
                   ●
                 </span>
                 <h3 className="font-semibold text-medium">
-                  Submit Documents
+                  {tasks[0]?.title}
                 </h3>
               </div>
 
               <p className="text-small text-gray-400 mt-3">
-                Make sure to submit all the necessary documents....
+                {tasks[0]?.direction}
               </p>
 
               <div className="text-[12px] mt-3">
@@ -42,63 +64,78 @@ const MyTask = () => {
                 </span>
 
                 <span className="text-red-500 ml-1">
-                  Extreme
+                  {tasks[0]?.priority}
                 </span>
                 <span className="ml-3">
                   Status:
                 </span>
                 <span className="text-red-500 ml-1">
-                  Not Started
+                  {tasks[0]?.status}
                 </span>
               </div>
             </div>
-            <img
-              src={cloudinaryImages.document}
-              alt="document"
-              className="w-18 h-18 rounded-lg object-cover"
-            />
+           <div className="relative">
+  <img
+    src={cloudinaryImages.document}
+    alt="document"
+    className="w-18 h-18 rounded-lg object-cover"
+  />
+
+  <button className="absolute -top-4  -right-1 text-gray-400 hover:text-gray-600">
+    <PiDotsThreeOutlineLight size={18} />
+  </button>
+</div>
           <p className="text-xs text-gray-400 absolute bottom-2 right-3">
-            Created on: 20/06/2023
+            Created on: {tasks[0]?.createdAt}
             </p>
             
           </div>
           {/* Task 2 */}
 
-          <div className="border border-gray-300 rounded-lg p-3 flex justify-between items-start relative">
+          <div
+  className="border border-gray-300 rounded-lg p-3 mb-3 flex justify-between items-start relative cursor-pointer"
+  onClick={() => setSelectedTask(tasks[1])}
+>
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-blue-500">
                   ●
                 </span>
                 <h3 className="font-semibold text-sm">
-                  Complete assignment
+                  {tasks[1]?.title}
                 </h3>
               </div>
               <p className="text-small text-gray-400 mt-3">
-                The assignments must be completed to pass final year....
+               {tasks[1]?.description}
               </p>
               <div className="text-[12px] mt-3">
                 <span>
                   Priority:
                 </span>
                 <span className="text-blue-500 ml-1">
-                  Moderate
+                  {tasks[1]?.priority}
                 </span>
                 <span className="ml-3">
                   Status:
                 </span>
                 <span className="text-blue-500 ml-1">
-                  In Progress
+                  {tasks[1]?.status}
                 </span>
               </div>
             </div>
-            <img
-              src={cloudinaryImages.assignment}
-              alt="assignment"
-              className="w-18 h-18 rounded-lg object-cover"
-            />
+            <div className="relative">
+  <img
+    src={cloudinaryImages.assignment}
+    alt="assignment"
+    className="w-18 h-18 rounded-lg object-cover"
+  />
+
+  <button className="absolute -top-4  -right-1 text-gray-400 hover:text-gray-600">
+    <PiDotsThreeOutlineLight size={18} />
+  </button>
+</div>
             <p className="text-xs text-gray-400 absolute bottom-2 right-3">
-                Created on: 20/06/2023
+                Created on: {tasks[1]?.createdAt}
             </p>
           </div>
         </div>
@@ -107,67 +144,67 @@ const MyTask = () => {
  shadow-sm">
           <div className="flex gap-4">
             <img
-              src={cloudinaryImages.document}
+               src={
+          selectedTask?.category === "Work"
+            ? cloudinaryImages.document
+            : cloudinaryImages.assignment
+        }
               alt="document"
               className="w-40 h-40 rounded-lg object-cover"
             />
             
             <div className="mt-12">
               <h2 className="font-bold text-medium">
-                Submit Documents
+                {selectedTask?.title}
               </h2>
               <p className="text-xs mt-2">
                 Priority:
                 <span className="text-red-500 ml-1">
-                  Extreme
+                  {selectedTask?.priority}
                 </span>
               </p>
               <p className="text-xs mt-1">
                 Status:
                 <span className="text-red-500 ml-1">
-                  Not Started
+                  {selectedTask?.status}
                 </span>
               </p>
               <p className="text-xs text-gray-400 mt-3">
-                Created on: 20/06/2023
+                Created on: {selectedTask?.createdAt}
               </p>
             </div>
           </div>
           <p className="text-gray-500 text-medium mt-6">
-           <b>Task Title:</b> Document submission
+           <b>Task Title:</b> {selectedTask?.title}
           </p>
-          <p className="text-gray-500 text-medium mt-6 leading-7 max-w-4xl">
-            <b>Objective:</b> To submit required documents for something important.
+         <div className="text-gray-500 text-medium mt-6 leading-7 max-w-4xl space-y-5">
 
-<br/><br/>
+    <div>
+        <b>Objective:</b>
+        <p>{selectedTask?.objective}</p>
+    </div>
 
-<b>Task Description:</b> Review the list of documents required for submission and ensure all necessary 
-documents are ready. Organize the documents accordingly and
- scan them if physical copies need to be submitted digitally.
-  Rename the scanned files appropriately for easy identification
-   and verify the accepted file formats. Upload the documents securely
-    to the designated platform, double-check for accuracy, and obtain confirmation of successful submission.
-     Follow up if necessary to ensure proper processing.
+    <div>
+        <b>Task Description:</b>
+        <p>{selectedTask?.description}</p>
+    </div>
 
-<br/><br/>
+    <div>
+        <b>Additional Notes:</b>
 
-<b>Additional Notes:</b>
+        <ul className="list-disc ml-6 mt-2">
+            {selectedTask?.notes?.map((note,index)=>(
+                <li key={index}>{note}</li>
+            ))}
+        </ul>
+    </div>
 
-<br/>
+    <div>
+        <b>Deadline for Submission:</b>
+        <p>{selectedTask?.deadline}</p>
+    </div>
 
-• Ensure that the documents are authentic and up-to-date.
-
-<br/>
-
-• Maintain confidentiality and security of sensitive information during the submission process.
-
-<br/>
-
-• If there are specific guidelines or deadlines for submission, adhere to them diligently.
-<br/>
-
-<b>Deadline for Submission: </b> End of Day
-             </p>
+</div>
           <div className="absolute bottom-6 right-6 flex gap-3">
             <button className="bg-red-500 text-white p-2 rounded-lg">
               <FaTrash />
