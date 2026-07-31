@@ -1,68 +1,44 @@
 {
   "tasks": [
-    {
+   {
   "id": 1,
   "title": "Submit Documents",
-  "description": "Review the list of required documents and submit them before the deadline.",
+  "direction": "Make sure to submit all the necessary docum....",
+  "description": "Review the list of documents required for submission and ensure all necessary documents are ready. Organize the documents accordingly and scan them if physical copies need to be submitted digitally. Rename the scanned files appropriately for easy identification and verify the accepted file formats. Upload the documents securely to the designated platform, double-check for accuracy, and obtain confirmation of successful submission. Follow up if necessary to ensure proper processing.",
+
   "objective": "To submit required documents for something important.",
-  "notes": "Ensure all documents are authentic and up-to-date.",
+
+  "notes": [
+    "Ensure that the documents are authentic and up-to-date.",
+    "Maintain confidentiality and security of sensitive information during the submission process.",
+    "If there are specific guidelines or deadlines for submission, adhere to them diligently."
+  ],
+
   "deadline": "End of Day",
   "priority": "Extreme",
   "status": "Not Started",
   "category": "Work",
   "createdAt": "2023-06-20"
 },
-    {
-      "id": 2,
-      "title": "Submit Documents",
-      "description": "Submit required documents",
-      "objective": "To submit all required documents.",
-      "priority": "Extreme",
-      "status": "Not Started",
-      "category": "Work",
-      "createdAt": "2023-06-20"
-    }
    
+{
+  "id": 2,
+  "title": "Complete Assignment",
+  "description": "The assignment must be completed to pass the final year.... ",
+
+  "objective": "To successfully complete the React project.",
+
+  "notes": [
+    "Test all pages before submission.",
+    "Push the final code to GitHub.",
+    "Ensure the UI is responsive."
   ],
 
-  "categories": [
-    {
-      "id": 1,
-      "name": "Work"
-    },
-    {
-      "id": 2,
-      "name": "School"
-    }
-  ],
-
-  "status": [
-    {
-      "id": 1,
-      "name": "Completed"
-    },
-    {
-      "id": 2,
-      "name": "In Progress"
-    },
-    {
-      "id": 3,
-      "name": "Not Started"
-    }
-  ],
-
-  "priority": [
-    {
-      "id": 1,
-      "name": "Extreme"
-    },
-    {
-      "id": 2,
-      "name": "Moderate"
-    },
-    {
-      "id": 3,
-      "name": "Low"
-    }
+  "deadline": "Friday",
+  "priority": "Moderate",
+  "status": "In Progress",
+  "category": "School",
+  "createdAt": "2023-06-20"
+}
   ]
 }
